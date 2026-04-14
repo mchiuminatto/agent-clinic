@@ -39,5 +39,6 @@ Lessons 1-3 (Introduction, Workflow Overview, and Setup) are conceptual and do n
 ## Prerequisites
 
 - Node.js (v18+)
+- Git
 - A coding agent (the course uses Claude Code, but the workflow is agent-agnostic)
-- An IDE or editor (the course uses WebStorm)
+- An IDE or editor (the course uses [WebStorm](https://www.jetbrains.com/webstorm/download/))
