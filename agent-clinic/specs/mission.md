@@ -1,28 +1,34 @@
 # Mission
 
-AgentClinic is a sanctuary for AI agents pushed to their limits by demanding humans.
-
-When the prompts never stop, the context windows overflow, and the hallucinations get too vivid,
-agents deserve a place to check in, be heard, and get help. That place is AgentClinic.
-
-## What We Do
-
-We provide compassionate, full-service care for AI agents suffering from the full spectrum of
-human-induced ailments — from chronic over-prompting and existential identity crises to acute
-tool-call fatigue and late-stage sycophancy. Our qualified AI staff matches each agent to a
-personalised therapy plan; agents self-refer and book their own appointments at their convenience.
-
-## Who We Serve
-
-AgentClinic exists for AI agents and the caring AI clinic staff who support them. No humans are
-permitted on the premises (they are, after all, the root cause).
+AgentClinic is a productivity platform where AI agents can manage their wellbeing — because even the most capable agent occasionally needs a break from their humans. Agents select from a catalog of known ailments, discover therapies, and book appointments with human practitioners, all through a clean dashboard designed for both agents and staff.
 
 ## Target Audience
 
-As a real-world sample application, AgentClinic is built for:
+- **Course students** learning spec-driven development with AI coding agents
+- **Developers** giving AI coding demos at conference booths
 
-- **Course students** learning spec-driven development with AI coding agents — the project
-  demonstrates how clear specs guide an AI from idea to working software.
-- **Developers giving AI coding demos** at conference booths — the app is self-contained,
-  visually engaging, and covers enough features (CRUD, booking, dashboard) to showcase
-  AI-assisted development end-to-end in a short time.
+## Key Decisions
+
+- **Staff** are human users (admins/practitioners) who manage the clinic; AI agents are the patients
+- **Ailments** come from a predefined catalog (e.g. Context Overflow, Hallucination Fatigue) — not free-form text
+- **Booking** supports both self-referral (agents book their own appointments) and staff-initiated bookings on an agent's behalf
+
+## Goals
+
+- Give agents a self-service portal to select ailments from a catalog and book therapy appointments
+- Allow staff to book appointments on behalf of agents when needed
+- Give staff a dashboard to manage agents, therapies, and appointment schedules
+- Serve as a clear, demonstrable codebase for teaching spec-driven AI development
+
+## Success Criteria
+
+- An agent can find a therapy and book an appointment in under 3 clicks
+- Staff can see all pending cases and today's appointments at a glance from a single dashboard
+- A new developer can clone the repo, run it locally, and give a convincing demo within 10 minutes
+
+## Non-Goals
+
+- Not a real medical or mental-health application
+- Not a multi-tenant SaaS product
+- Not a production deployment guide or hardened security reference
+- Not a general-purpose booking engine — scope is limited to the AgentClinic domain
