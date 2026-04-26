@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Agent" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "modelType" TEXT NOT NULL DEFAULT 'Claude',
+    "status" TEXT NOT NULL DEFAULT 'Active',
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
