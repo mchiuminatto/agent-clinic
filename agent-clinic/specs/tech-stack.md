@@ -2,30 +2,33 @@
 
 ## Framework
 
-**Next.js** (App Router) with **TypeScript** — server-side rendering and API routes in a single project.
+**Next.js 14** (App Router) with **TypeScript** — server-side rendering and API routes in a single repo. All business logic runs server-side; client components are limited to interactivity.
 
-## Frontend
+## Styling
 
-- **React** (via Next.js App Router)
-- **Tailwind CSS** — utility-first styling for a modern, responsive UI
-- **shadcn/ui** — copy-paste components built on Radix UI + Tailwind, used for dashboard UI
+**Tailwind CSS** — utility-first styling aligned with Steve's requirement for an attractive, modern browser experience.  
+**Radix UI** — headless, accessible component primitives for dropdowns, labels, and form elements.  
+**lucide-react** — icon set.
 
-## Backend
+## Database
 
-- **Next.js API Routes** — server-side TypeScript handlers
-- **SQLite** — lightweight relational database, file-based, zero infra
-- **Prisma** — ORM for schema management, migrations, and type-safe queries
-
-## Authentication
-
-No authentication for now. Role switching (agent / staff) is handled via a UI toggle, keeping the setup frictionless for demos and teaching. Auth can be layered in later.
+**SQLite** via **Prisma ORM** — zero-config, file-based database ideal for a local-first educational and demo project. Prisma handles migrations, seeding, and type-safe queries.
 
 ## Testing
 
-- **Vitest** — fast unit and integration test runner, native TypeScript support
-- **React Testing Library** — component-level tests against rendered output
+**Vitest** — fast unit and integration test runner compatible with the Vite/Next.js ecosystem.  
+**@testing-library/react** — component-level tests against real DOM behavior.
 
-## Tooling
+## Utilities
 
-- **Node.js** runtime
-- **ESLint** + **Prettier** for code quality
+- `class-variance-authority` + `clsx` + `tailwind-merge` — composable, conflict-safe class utilities.
+- `tsx` — TypeScript execution for seed scripts.
+
+## Decisions
+
+| Decision | Rationale |
+|---|---|
+| Next.js over Express | Full-stack TypeScript in one repo; App Router gives co-located API routes and server components |
+| SQLite over Postgres | Zero-setup for demos and course use; swap to Postgres via one Prisma config change when needed |
+| Radix UI over a full component library | Gives styling control while handling accessibility primitives |
+| Vitest over Jest | Faster, native ESM, works without config changes in a Next.js/Vite project |

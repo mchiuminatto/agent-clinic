@@ -1,50 +1,58 @@
 # Roadmap
 
-Each phase delivers one thin vertical slice — schema, API, and UI — so the app is always in a working state.
+Each phase is a small, shippable slice with its own spec, implementation, and validation. Phases build on each other; no phase skips ahead.
 
-## Phase 1 — Project Scaffold
+---
 
-- Initialize Next.js + TypeScript + Tailwind
-- Install and configure shadcn/ui
-- Configure Prisma with SQLite
-- Set up Vitest + React Testing Library
-- Base layout with navigation shell
-- Agent / staff role toggle (UI switcher, no auth)
+## Phase 0 — Scaffold ✅
 
-## Phase 2 — Agent Profiles
+- Next.js 14 project with TypeScript, Tailwind, Radix UI
+- Prisma configured with SQLite
+- Vitest + Testing Library wired up
+- Basic layout and home page
 
-- Agent model (name, model type, status)
-- CRUD pages for agents
-- Agent list and detail views
+## Phase 1 — Agent Profiles ✅
 
-## Phase 3 — Full Clinic Features
+- `Agent` model: name, modelType, status
+- REST API: `GET/POST /api/agents`, `GET/PUT/DELETE /api/agents/[id]`
+- UI pages: list, detail, new, edit
 
-### Ailments
+## Phase 2 — Ailments Catalog ✅
 
-- Ailment catalog model with predefined entries (e.g. Context Overflow, Hallucination Fatigue, Token Anxiety)
-- Seed script to populate the catalog
-- Agents select ailments from the catalog; ailment–agent association model
-- View active ailments per agent with severity levels
+- `Ailment` model: name, description, severity (unique names)
+- `AgentAilment` join model: status, createdAt, resolvedAt
+- REST API: CRUD for ailments; assign/remove ailments on an agent
+- UI pages: ailments list, new, edit; ailments shown on agent detail
 
-### Therapies
+---
 
-- Therapy model (name, description, duration)
-- CRUD pages for therapies (staff-managed)
-- Browse available therapies (agent-facing)
+## Phase 3 — Therapies
 
-### Appointments
+- `Therapy` model: name, description, recommended for which severity levels
+- REST API: CRUD for therapies
+- UI pages: therapies list, new, edit
 
-- Appointment model linking agents, therapies, and time slots
-- Agent self-booking flow
-- Staff-initiated booking on behalf of an agent
-- Appointment list view (per agent and global)
+## Phase 4 — Assign Therapies to Agents
 
-### Staff Dashboard
+- `AgentTherapy` join model: agentId, therapyId, startedAt, completedAt, outcome
+- REST API: assign/complete/remove therapy on an agent
+- UI: therapy section on agent detail page
 
-- Staff view: all agents, pending cases, therapy utilization
-- Role toggle gates staff-only actions in the UI (no auth required)
-- Today's appointments at a glance
+## Phase 5 — Appointments
 
-### Agent Dashboard
+- `Appointment` model: agentId, scheduledAt, reason, status (Scheduled / Completed / Cancelled)
+- REST API: CRUD for appointments
+- UI pages: appointments list, new, edit; appointments shown on agent detail
 
-- Agent-facing dashboard: upcoming appointments, ailment history, therapy recommendations
+## Phase 6 — Staff Dashboard
+
+- Summary page: total agents, open ailments, active therapies, upcoming appointments
+- Quick-links to add agent, log ailment, book appointment
+- No auth required — staff trust model (clinic is internal)
+
+## Phase 7 — Polish & Demo Readiness
+
+- Seed data: realistic agents, ailments, therapies, appointments for demo use
+- Responsive layout verified on mobile and desktop
+- Error states and empty states on all list pages
+- README updated with setup and demo instructions
