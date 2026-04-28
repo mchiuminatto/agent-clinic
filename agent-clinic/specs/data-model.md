@@ -23,22 +23,24 @@ Predefined entries seeded at startup. Agents select from this list.
 | Field       | Type     | Notes                          |
 |-------------|----------|--------------------------------|
 | id          | Int      | Primary key, auto-increment    |
-| name        | String   | e.g. "Context Overflow"        |
-| description | String?  | Optional explanation           |
-| severity    | Enum     | Low, Medium, High, Critical    |
+| name        | String   | e.g. "Context Overflow"; unique |
+| description | String?  | Optional explanation            |
+| severity    | Enum     | Low, Medium, High               |
 
 ---
 
 ## AgentAilment (association)
 
-Records which ailments an agent currently has.
+Records which ailments an agent currently has or has had.
 
-| Field      | Type     | Notes                    |
-|------------|----------|--------------------------|
-| id         | Int      | Primary key              |
-| agentId    | Int      | FK → Agent               |
-| ailmentId  | Int      | FK → Ailment             |
-| createdAt  | DateTime | When ailment was logged  |
+| Field      | Type      | Notes                                       |
+|------------|-----------|---------------------------------------------|
+| id         | Int       | Primary key                                 |
+| agentId    | Int       | FK → Agent                                  |
+| ailmentId  | Int       | FK → Ailment                                |
+| status     | Enum      | Active, Resolved                            |
+| createdAt  | DateTime  | When ailment was logged; auto-set           |
+| resolvedAt | DateTime? | Set when status transitions to Resolved     |
 
 ---
 

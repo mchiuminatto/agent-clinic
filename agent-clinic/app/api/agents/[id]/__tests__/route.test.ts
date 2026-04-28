@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest"
+import { Prisma } from "@prisma/client"
 import { GET, PUT, DELETE } from "../route"
 
 const mockAgent = {
@@ -89,5 +90,18 @@ describe("DELETE /api/agents/[id]", () => {
     const req = new Request("http://localhost/api/agents/999", { method: "DELETE" })
     const res = await DELETE(req, { params: { id: "999" } })
     expect(res.status).toBe(404)
+  })
+
+  it("returns 409 when agent has ailments", async () => {
+    vi.mocked(db.agent.findUnique).mockResolvedValue(mockAgent as never)
+    vi.mocked(db.agent.delete).mockRejectedValue(
+      new Prisma.PrismaClientKnownRequestError("FK constraint failed", {
+        code: "P2003",
+        clientVersion: "5.0.0",
+      })
+    )
+    const req = new Request("http://localhost/api/agents/1", { method: "DELETE" })
+    const res = await DELETE(req, params)
+    expect(res.status).toBe(409)
   })
 })

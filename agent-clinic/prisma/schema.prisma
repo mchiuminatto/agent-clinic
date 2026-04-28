@@ -8,9 +8,29 @@ datasource db {
 }
 
 model Agent {
-  id        Int      @id @default(autoincrement())
+  id        Int            @id @default(autoincrement())
   name      String
-  modelType String   @default("Claude")
-  status    String   @default("Active")
-  createdAt DateTime @default(now())
+  modelType String         @default("Claude")
+  status    String         @default("Active")
+  createdAt DateTime       @default(now())
+  ailments  AgentAilment[]
+}
+
+model Ailment {
+  id          Int            @id @default(autoincrement())
+  name        String         @unique
+  description String?
+  severity    String
+  agents      AgentAilment[]
+}
+
+model AgentAilment {
+  id         Int       @id @default(autoincrement())
+  agentId    Int
+  ailmentId  Int
+  status     String    @default("Active")
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+  agent      Agent     @relation(fields: [agentId], references: [id])
+  ailment    Ailment   @relation(fields: [ailmentId], references: [id])
 }

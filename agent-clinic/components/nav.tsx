@@ -7,6 +7,7 @@ import { RoleToggle } from "@/components/role-toggle"
 
 const links = [
   { href: "/agents", label: "Agents" },
+  { href: "/ailments", label: "Ailments" },
 ]
 
 export function Nav() {

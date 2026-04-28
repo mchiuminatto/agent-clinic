@@ -1,6 +1,12 @@
 {
-  "/page": "app/page.js",
+  "/agents/page": "app/agents/page.js",
   "/api/agents/route": "app/api/agents/route.js",
+  "/ailments/page": "app/ailments/page.js",
+  "/api/ailments/route": "app/api/ailments/route.js",
   "/agents/new/page": "app/agents/new/page.js",
-  "/agents/page": "app/agents/page.js"
+  "/api/agents/[id]/route": "app/api/agents/[id]/route.js",
+  "/agents/[id]/page": "app/agents/[id]/page.js",
+  "/api/agents/[id]/ailments/route": "app/api/agents/[id]/ailments/route.js",
+  "/agents/[id]/edit/page": "app/agents/[id]/edit/page.js",
+  "/api/agents/[id]/ailments/[associationId]/route": "app/api/agents/[id]/ailments/[associationId]/route.js"
 }
