@@ -28,3 +28,35 @@ export interface PaginatedResponse<T> {
   page: number
   pageSize: number
 }
+
+export const AilmentSeverity = {
+  Low: "Low",
+  Medium: "Medium",
+  High: "High",
+} as const
+
+export type AilmentSeverity = (typeof AilmentSeverity)[keyof typeof AilmentSeverity]
+
+export const AgentAilmentStatus = {
+  Active: "Active",
+  Resolved: "Resolved",
+} as const
+
+export type AgentAilmentStatus = (typeof AgentAilmentStatus)[keyof typeof AgentAilmentStatus]
+
+export interface Ailment {
+  id: number
+  name: string
+  description: string | null
+  severity: string
+}
+
+export interface AgentAilment {
+  id: number
+  agentId: number
+  ailmentId: number
+  status: string
+  createdAt: string
+  resolvedAt: string | null
+  ailment: Ailment
+}

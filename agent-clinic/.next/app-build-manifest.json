@@ -16,10 +16,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/agents/page.js"
     ],
+    "/ailments/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/ailments/page.js"
+    ],
     "/agents/new/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/agents/new/page.js"
+    ],
+    "/agents/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/agents/[id]/page.js"
+    ],
+    "/agents/[id]/edit/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/agents/[id]/edit/page.js"
     ]
   }
 }
